@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 여름방학 안내문</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .vacation-dates {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .vacation-dates h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .vacation-dates h3::before {
+            content: '📅';
+            font-size: 1.2em;
+        }
+        
+        .date-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .date-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .date-item strong {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        
+        .emergency-contact {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .guidance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .guidance-card {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .guidance-card h4 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .guidance-card h4::before {
+            content: '🏫';
+            font-size: 1.2em;
+        }
+        
+        .guidance-card:nth-child(2) {
+            background: linear-gradient(135deg, #00cec9 0%, #00b894 100%);
+        }
+        
+        .guidance-card:nth-child(2) h4::before {
+            content: '👮‍♂️';
+        }
+        
+        .rules-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .rules-category {
+            margin-bottom: 25px;
+        }
+        
+        .rules-category h4 {
+            font-size: 1.3em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .rules-category:nth-child(1) h4::before {
+            content: '✅';
+        }
+        
+        .rules-category:nth-child(2) h4::before {
+            content: '⚠️';
+        }
+        
+        .rules-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .rules-list li {
+            background: white;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .rules-list li:hover {
+            transform: translateX(5px);
+        }
+        
+        .volunteer-section {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .volunteer-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .volunteer-section h3::before {
+            content: '🤝';
+            font-size: 1.2em;
+        }
+        
+        .volunteer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .volunteer-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .prevention-section {
+            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .prevention-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .prevention-section h3::before {
+            content: '🛡️';
+            font-size: 1.2em;
+        }
+        
+        .prevention-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .prevention-card {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .prevention-card h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .prevention-card:nth-child(1) h4::before {
+            content: '🚨';
+        }
+        
+        .prevention-card:nth-child(2) h4::before {
+            content: '🆘';
+        }
+        
+        .parent-section {
+            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .parent-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .parent-section h3::before {
+            content: '👨‍👩‍👧‍👦';
+            font-size: 1.2em;
+        }
+        
+        .parent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .parent-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .safety-section {
+            background: linear-gradient(135deg, #ff7675 0%, #d63031 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .safety-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .safety-section h3::before {
+            content: '🏊‍♀️';
+            font-size: 1.2em;
+        }
+        
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .safety-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .contact-section h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .contact-section h3::before {
+            content: '📞';
+            font-size: 1.2em;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-item strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .emergency-numbers {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            margin-top: 20px;
+        }
+        
+        .emergency-numbers h4 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+        
+        .emergency-item {
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 0 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+            
+            .guidance-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .date-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌞 2025 여름방학 안내</h1>
+            <p class="subtitle">안전하고 즐거운 여름방학을 보내세요!</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="vacation-dates">
+                    <h3>여름방학 일정</h3>
+                    <div class="date-grid">
+                        <div class="date-item">
+                            <strong>방학기간</strong>
+                            2025년 7월 19일(토) ~ 8월 10일(일)<br>
+                            <em>총 23일간</em>
+                        </div>
+                        <div class="date-item">
+                            <strong>개학일</strong>
+                            2025년 8월 11일(월)<br>
+                            <em>오전 8시 15분 정상 등교</em>
+                        </div>
+                    </div>
+                    <div class="emergency-contact">
+                        <strong>📞 비상 연락처</strong><br>
+                        학교 051-898-2215~7
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">방학 중 학생 생활지도</h2>
+                
+                <div class="guidance-grid">
+                    <div class="guidance-card">
+                        <h4>학교 자체 지도</h4>
+                        <p><strong>순회 일정:</strong> 매일 1회 이상 교사 순회지도</p>
+                        <p><strong>주요 순회지역:</strong> 당감동, 개금동, 모라동, 주례동 일대</p>
+                        <p><strong>중점 단속:</strong> 폭력, 음주, 흡연, 유해업소 출입, 오토바이 이용 등</p>
+                    </div>
+                    
+                    <div class="guidance-card">
+                        <h4>합동 교외지도</h4>
+                        <p><strong>참여 기관:</strong> 바다 경찰 및 중·고등학교 교사</p>
+                        <p><strong>주요 지역:</strong> 부산 5개 해수욕장<br>(해운대, 광안리, 송정, 다대포, 송도)</p>
+                        <p><strong>조치사항:</strong> 중대사안 발생 시 경찰서 인계 및 학교 통보</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">학생 생활수칙</h2>
+                
+                <div class="rules-section">
+                    <div class="rules-category">
+                        <h4>기본 준수사항</h4>
+                        <ul class="rules-list">
+                            <li>외출 시 학생증 필수 소지</li>
+                            <li>규칙적인 생활 및 건강 유지 노력</li>
+                            <li>여가 활동 및 봉사활동 적극 참여</li>
+                            <li>등교 시 교복 착용 필수</li>
+                            <li>학교장 허락 후 교사 인솔하에만 체험학습 가능</li>
+                            <li>원거리 여행 시 보호자 동반, 비상상황 즉시 학교 통보</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="rules-category">
+                        <h4>안전사고 예방 및 교외 생활수칙</h4>
+                        <ul class="rules-list">
+                            <li>안전장비 착용(자전거, 인라인 등)</li>
+                            <li>오토바이 및 공유 전동킥보드 이용 금지</li>
+                            <li>청소년 유해업소 출입 절대 금지</li>
+                            <li>약물 오남용 금지</li>
+                            <li>폭력 및 집단따돌림 금지 및 신고 권장</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="volunteer-section">
+                    <h3>봉사활동 안내</h3>
+                    <div class="volunteer-grid">
+                        <div class="volunteer-item">
+                            <strong>개인별 권장시간</strong><br>
+                            연간 20시간 이상
+                        </div>
+                        <div class="volunteer-item">
+                            <strong>개인 봉사</strong><br>
+                            사전 담임 허가 및 확인서 제출 필수
+                        </div>
+                        <div class="volunteer-item">
+                            <strong>단체 봉사활동</strong><br>
+                            교사 인솔 필수
+                        </div>
+                        <div class="volunteer-item">
+                            <strong>일 최대 인정 시간</strong><br>
+                            4시간
+                        </div>
+                        <div class="volunteer-item">
+                            <strong>인증 기관</strong><br>
+                            교육청 인증기관 또는 학교장 승인 기관
+                        </div>
+                        <div class="volunteer-item">
+                            <strong>주의사항</strong><br>
+                            부당한 봉사활동 확인서 제출 금지
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="prevention-section">
+                    <h3>폭력 예방교육</h3>
+                    <div class="prevention-grid">
+                        <div class="prevention-card">
+                            <h4>학교폭력 대응</h4>
+                            <p>관계기관 즉시 신고</p>
+                            <p><strong>📞 학교폭력 신고전화: 117, 112</strong></p>
+                            <p><strong>📞 학생고충 신고전화: 1588-7179</strong></p>
+                        </div>
+                        
+                        <div class="prevention-card">
+                            <h4>성폭력 대응</h4>
+                            <p>부산해바라기 여성·아동센터 이용</p>
+                            <p><strong>📞 051-244-1357</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="parent-section">
+                    <h3>학부모님 협조 요청 사항</h3>
+                    <div class="parent-grid">
+                        <div class="parent-item">
+                            자녀의 계획적인 생활과 건강관리
+                        </div>
+                        <div class="parent-item">
+                            오토바이, 공유킥보드 등 위험행위 예방 지도
+                        </div>
+                        <div class="parent-item">
+                            가족 동반 봉사 및 야외 활동 권장
+                        </div>
+                        <div class="parent-item">
+                            인터넷 중독 및 사이버 폭력 예방 지도
+                        </div>
+                        <div class="parent-item">
+                            디지털 성범죄 예방 수칙 안내 및 관리
+                        </div>
+                        <div class="parent-item">
+                            생명존중 및 자살 예방 교육 실천
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="safety-section">
+                    <h3>물놀이 안전수칙</h3>
+                    <div class="safety-grid">
+                        <div class="safety-item">
+                            준비운동 및 구명조끼 착용 필수
+                        </div>
+                        <div class="safety-item">
+                            천천히 몸을 물에 적신 후 입수
+                        </div>
+                        <div class="safety-item">
+                            물 깊이 확인 후 놀이
+                        </div>
+                        <div class="safety-item">
+                            이상 증상 시 즉시 중단 및 도움 요청
+                        </div>
+                        <div class="safety-item">
+                            긴급 상황 발생 시 119 신고 및 주변 도움 요청
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="contact-section">
+                    <h3>학교 연락처</h3>
+                    <div class="contact-grid">
+                        <div class="contact-item">
+                            <strong>교무실</strong>
+                            051-898-2215~7
+                        </div>
+                        <div class="contact-item">
+                            <strong>행정실</strong>
+                            051-898-2212~3
+                        </div>
+                    </div>
+                    
+                    <div class="emergency-numbers">
+                        <h4>🚨 긴급 상담 연락처</h4>
+                        <div class="emergency-grid">
+                            <div class="emergency-item">
+                                <strong>청소년상담</strong><br>
+                                1388, 117
+                            </div>
+                            <div class="emergency-item">
+                                <strong>생명의전화</strong><br>
+                                051-804-0896<br>
+                                051-807-9195
+                            </div>
+                            <div class="emergency-item">
+                                <strong>정신보건센터</strong><br>
+                                051-242-2575
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
